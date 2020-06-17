@@ -1,0 +1,70 @@
+//MEDIA QUERIES
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em) {
+            @content;
+        } //600px
+    }
+
+    @if $breakpoint == tab-port {
+        @media (max-width: 56.25em) {
+            @content;
+        } //900px
+    }
+
+    @if $breakpoint == tab-land {
+        @media (max-width: 75em) {
+            @content;
+        } //1200px
+    }
+
+    @if $breakpoint == min-tab-land {
+        @media (min-width: 75.01em) {
+            @content;
+        } //1200px
+    }
+
+    @if $breakpoint == desktop {
+        @media (min-width: 112.5em) {
+            @content;
+        } //1800px
+    }
+}
+
+//UTILITY MIXINS
+@mixin fullImage {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin section-spacing {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+}
+
+@mixin section-spacing--huge {
+    padding-top: 16rem;
+    padding-bottom: 16rem;
+}
+
+@mixin capitalize {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+@mixin hover-transition {
+    transition: all 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+@mixin link-hover {
+    &:hover {
+        color: var(--color-link-hover);
+    }
+}
