@@ -1,16 +1,19 @@
 <template>
     <div>
         <Hero :hero="content" />
+        <slices-block :slices="slices" />
     </div>
 </template>
 
 <script>
+import SlicesBlock from '~/components/SlicesBlock.vue';
 import Hero from '~/components/Hero';
 
 export default {
     name: 'frontpage',
     components: {
         Hero,
+        SlicesBlock,
     },
     async asyncData({ $prismic, params, error }) {
         try {
@@ -18,6 +21,7 @@ export default {
 
             return {
                 content: document.data,
+                slices: document.data.body,
             };
         } catch (e) {
             error({ statusCode: 404, message: 'Something wrong happened!' });

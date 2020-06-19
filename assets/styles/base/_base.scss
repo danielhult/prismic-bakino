@@ -75,7 +75,7 @@ button {
     --h4: calc(var(--h5) * var(--type-scale));
     --h3: calc(var(--h4) * var(--type-scale));
     --h2: calc(var(--h3) * var(--type-scale));
-    --h1: calc(var(--h2) * var(--type-scale));
+    --h1: calc(var(--h2) * calc(var(--type-scale) * 1.6));
 
     /* line height */
     --heading-line-height: 1.25;
@@ -146,4 +146,8 @@ h4 {
 h5 {
     font-size: var(--h5);
     margin-bottom: var(--h5-spacing);
+}
+
+p {
+    margin-bottom: var(--paragraph-spacing);
 }

@@ -13,6 +13,9 @@
             <template v-else-if="slice.slice_type === 'image_gallery'">
                 <image-gallery-slice :slice="slice"></image-gallery-slice>
             </template>
+            <template v-else-if="slice.slice_type === 'employees'">
+                <employees-slice :slice="slice"></employees-slice>
+            </template>
         </section>
     </section>
 </template>
@@ -22,6 +25,7 @@
 const HeroSlice = () => import('../components/slices/HeroSlice.vue');
 const QuoteSlice = () => import('../components/slices/QuoteSlice.vue');
 const TextSlice = () => import('../components/slices/TextSlice.vue');
+const EmployeesSlice = () => import('../components/slices/EmployeesSlice.vue');
 const ImageGallerySlice = () =>
     import('../components/slices/ImageGallerySlice.vue');
 
@@ -33,6 +37,7 @@ export default {
         QuoteSlice,
         TextSlice,
         ImageGallerySlice,
+        EmployeesSlice,
     },
 };
 </script>

@@ -6,10 +6,7 @@
                     <li>
                         <nuxt-link to="/">Home</nuxt-link>
                     </li>
-                    <li
-                        v-for="menuLink in $store.state.menu.menu_links"
-                        :key="menuLink.id"
-                    >
+                    <li v-for="menuLink in $store.state.menu.menu_links" :key="menuLink.id">
                         <nuxt-link :to="menuLink.link.uid">{{
                             $prismic.asText(menuLink.link_label)
                         }}</nuxt-link>
