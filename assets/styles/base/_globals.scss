@@ -2,4 +2,8 @@
     max-width: 96rem;
     margin-left: auto;
     margin-right: auto;
+
+    &--big {
+        max-width: 140rem;
+    }
 }

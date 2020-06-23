@@ -1,18 +1,19 @@
 <template>
     <header class="header">
         <nav>
-            <div class="container">
-                <ul>
-                    <li>
-                        <nuxt-link to="/">Home</nuxt-link>
-                    </li>
-                    <li v-for="menuLink in $store.state.menu.menu_links" :key="menuLink.id">
-                        <nuxt-link :to="menuLink.link.uid">{{
-                            $prismic.asText(menuLink.link_label)
-                        }}</nuxt-link>
-                    </li>
-                </ul>
-            </div>
+            <ul>
+                <li>
+                    <nuxt-link to="/">Home</nuxt-link>
+                </li>
+                <li
+                    v-for="menuLink in $store.state.menu.menu_links"
+                    :key="menuLink.id"
+                >
+                    <nuxt-link :to="menuLink.link.uid">{{
+                        $prismic.asText(menuLink.link_label)
+                    }}</nuxt-link>
+                </li>
+            </ul>
         </nav>
     </header>
 </template>
@@ -23,7 +24,7 @@ export default {};
 
 <style lang="scss" scoped>
 .header {
-    padding: 2.4rem 4rem;
+    padding: 2vw 5vw;
     background: transparent;
     position: fixed;
     top: 0;

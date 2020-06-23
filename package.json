@@ -11,21 +11,22 @@
         "generate": "nuxt generate"
     },
     "dependencies": {
+        "@nuxtjs/prismic": "^1.2.1",
+        "@nuxtjs/style-resources": "^1.0.0",
         "apollo-cache-inmemory": "^1.6.3",
         "apollo-client": "^2.6.4",
         "apollo-link-prismic": "^1.0.4",
+        "core-js": "2.6.10",
         "graphql": "^14.5.8",
         "graphql-tag": "^2.10.1",
-        "@nuxtjs/prismic": "^1.2.1",
-        "@nuxtjs/style-resources": "^1.0.0",
-        "core-js": "2.6.10",
-        "gsap": "^3.3.0",
+        "gsap": "./gsap-bonus.tgz",
+        "node-sass": "^4.14.1",
         "nuxt": "^2.0.0",
         "prismic-dom": "^2.2.3",
-        "prismic-vue": "^2.0.1",
         "prismic-javascript": "^2.1.1",
+        "prismic-vue": "^2.0.1",
         "sass-loader": "^8.0.2",
-        "node-sass": "^4.14.1"
+        "splitting": "^1.0.6"
     },
     "devDependencies": {}
 }

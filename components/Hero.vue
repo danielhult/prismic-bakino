@@ -1,10 +1,10 @@
 <template>
     <section class="hero">
         <img :src="hero.featured_image.url" />
-        <div class="container">
+        <div class="container container--big">
             <div class="hero__content">
-                <h1>{{ hero.title[0].text }}</h1>
-                <p>{{ hero.sub_title[0].text }}</p>
+                <h1 class="hero__title">{{ hero.title[0].text }}</h1>
+                <p class="hero__text">{{ hero.sub_title[0].text }}</p>
             </div>
         </div>
     </section>
@@ -17,7 +17,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .hero {
     position: relative;
     height: 100vh;
@@ -35,6 +35,14 @@ export default {
         width: 100%;
         object-fit: cover;
         z-index: -1;
+    }
+
+    &__title {
+        overflow: visible;
+        height: auto;
+        opacity: 1;
+        pointer-events: auto;
+        text-transform: uppercase;
     }
 
     &__content {

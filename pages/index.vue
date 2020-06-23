@@ -8,6 +8,7 @@
 <script>
 import SlicesBlock from '~/components/SlicesBlock.vue';
 import Hero from '~/components/Hero';
+import { homepage } from '~/transitions';
 
 export default {
     name: 'frontpage',
@@ -26,6 +27,9 @@ export default {
         } catch (e) {
             error({ statusCode: 404, message: 'Something wrong happened!' });
         }
+    },
+    transition(to, from) {
+        return homepage;
     },
 };
 </script>
