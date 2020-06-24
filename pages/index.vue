@@ -8,7 +8,7 @@
 <script>
 import SlicesBlock from '~/components/SlicesBlock.vue';
 import Hero from '~/components/Hero';
-import { homepage } from '~/transitions';
+import { fadeOut } from '~/transitions';
 
 export default {
     name: 'frontpage',
@@ -29,7 +29,7 @@ export default {
         }
     },
     transition(to, from) {
-        return homepage;
+        return fadeOut;
     },
 };
 </script>

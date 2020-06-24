@@ -1,13 +1,17 @@
 import gsap from 'gsap';
 
+gsap.defaults({
+    duration: 1,
+    ease: 'power3.inOut',
+});
+
 export const wipeY = (el, origin, value) => {
     const tl = gsap.timeline();
 
     tl.to(el, {
-        duration: 1,
-        ease: 'power3.inOut',
         scaleY: value,
         transformOrigin: origin,
+        force3D: true,
     });
 
     return tl;
@@ -17,10 +21,9 @@ export const wipeX = (el, origin, value) => {
     const tl = gsap.timeline();
 
     tl.to(el, {
-        duration: 1,
-        ease: 'power3.inOut',
         scaleX: value,
         transformOrigin: origin,
+        force3D: true,
     });
 
     return tl;

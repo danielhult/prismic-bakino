@@ -60,6 +60,7 @@ export default {
         width: 100%;
         background: var(--color-secondary);
         transform: scaleY(1);
+        will-change: transform;
     }
 
     &__title {

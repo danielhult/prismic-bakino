@@ -3,13 +3,15 @@ import ScrollToPlugin from 'gsap/scrollToPlugin';
 if (process.client) {
     gsap.registerPlugin(ScrollToPlugin);
 }
-import { lineSplit } from '~/animations/Split';
+import { lineSplit, wordSplit } from '~/animations/Split';
 import { wipeY } from '~/animations/Wipes';
 import {
     enterTextAnimation,
     leaveTextAnimation,
     fadeOutUp,
     fadeInUp,
+    skewOutUp,
+    skewInUp,
 } from '~/animations/AnimateText';
 
 export const page = {
@@ -17,15 +19,9 @@ export const page = {
     mode: 'out-in',
     css: false,
     leave(el, done) {
-        if ($nuxt.$route.path === '/') {
-            gsap.timeline().to(el, {
-                autoAlpha: 0,
-                onComplete: done,
-            });
-        }
-
         const heroTitle = lineSplit('.hero__title');
         const heroText = lineSplit('.hero__text');
+
         const master = gsap.timeline({
             onStart: () => {
                 document.body.classList.add('body--overflow');
@@ -36,10 +32,10 @@ export const page = {
         });
 
         master
-            .to(window, { duration: 1, scrollTo: 0 })
+            .to(window, { duration: 0.5, scrollTo: 0 })
             .add(leaveTextAnimation(heroTitle.chars))
-            .add(fadeOutUp(heroText.words), '-=0.9')
-            .add(wipeY('.hero__overlay', 'center bottom', 1), '<');
+            .add(skewOutUp(heroText.lines), '<')
+            .add(wipeY('.hero__overlay', 'center bottom', 1), '-=1.3');
     },
     enter(el, done) {
         const heroTitle = lineSplit('.hero__title');
@@ -53,13 +49,13 @@ export const page = {
 
         master
             .add(enterTextAnimation(heroTitle.chars))
-            .add(fadeInUp(heroText.words), '-=0.9')
-            .add(wipeY('.hero__overlay', 'center top', 0), '<');
+            .add(skewInUp(heroText.lines), '-=0.95')
+            .add(wipeY('.hero__overlay', 'center top', 0), '-=1.2');
     },
 };
 
-export const homepage = {
-    name: 'homepage',
+export const fadeOut = {
+    name: 'fadeOut',
     mode: 'out-in',
     css: false,
     enter(el, done) {

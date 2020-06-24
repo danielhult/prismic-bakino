@@ -36,6 +36,30 @@ export const leaveTextAnimation = text => {
     return tl;
 };
 
+export const skewOutUp = element => {
+    const tl = gsap.timeline();
+
+    tl.to(element, {
+        y: -60,
+        opacity: 0,
+        skewY: 2,
+    });
+
+    return tl;
+};
+
+export const skewInUp = element => {
+    const tl = gsap.timeline();
+
+    tl.from(element, {
+        y: 60,
+        opacity: 0,
+        skewY: 2,
+    });
+
+    return tl;
+};
+
 export const fadeOutUp = element => {
     const tl = gsap.timeline();
 
@@ -47,7 +71,7 @@ export const fadeOutUp = element => {
     return tl;
 };
 
-export const fadeOutDon = element => {
+export const fadeOutDown = element => {
     const tl = gsap.timeline();
 
     tl.to(element, {

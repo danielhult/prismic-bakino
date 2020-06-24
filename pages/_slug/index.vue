@@ -6,7 +6,7 @@
 
 <script>
 import gsap from 'gsap';
-import { page } from '~/transitions';
+import { page, fadeOut } from '~/transitions';
 import SlicesBlock from '~/components/SlicesBlock.vue';
 
 export default {
@@ -29,6 +29,9 @@ export default {
     },
 
     transition(to, from) {
+        if (to.path === '/') {
+            return fadeOut;
+        }
         return page;
     },
 };
