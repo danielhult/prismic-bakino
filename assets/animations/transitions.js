@@ -1,6 +1,7 @@
 import gsap from 'gsap';
 import { lineSplit } from './Split';
 import { wipeY, wipeFromY } from './Wipes';
+import { scaleOut } from './Scale';
 import {
     enterTextAnimation,
     leaveTextAnimation,
@@ -46,7 +47,8 @@ export const page = {
             .add(enterTextAnimation(heroTitle.chars))
             .add(skewInUp(heroText.lines), '-=0.95')
             .add(skewInUp('.hero .btn'), '<')
-            .add(wipeFromY('.hero__overlay', 'center top', 1), '-=1.2');
+            .add(wipeFromY('.hero__overlay', 'center top', 1), '-=1.2')
+            .add(scaleOut('.hero__right img'), '<');
     },
 };
 

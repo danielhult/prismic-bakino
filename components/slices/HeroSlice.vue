@@ -59,6 +59,7 @@ export default {
 
     &__right {
         position: relative;
+        overflow: hidden;
 
         img {
             position: absolute;
