@@ -2,8 +2,13 @@
     <section class="hero">
         <div class="hero__left">
             <div class="hero__content">
-                <h1 class="hero__title">{{ slice.primary.title[0].text }}</h1>
-                <p class="hero__text">{{ slice.primary.sub_title[0].text }}</p>
+                <template v-if="slice.primary.title[0].text ">
+                    <h1 class="hero__title">{{ slice.primary.title[0].text }}</h1>
+                </template>
+                <template v-if="slice.primary.sub_title[0].text">
+                    <p class="hero__text">{{ slice.primary.sub_title[0].text }}</p>
+                </template>
+                <button class="btn">Buy now</button>
             </div>
         </div>
         <div class="hero__right">
@@ -32,10 +37,24 @@ export default {
 
     &__left {
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
         align-items: center;
+        flex-direction: column;
+    }
 
-        padding: 2vw 5vw;
+    &__content {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        padding: 3vw 5vw;
+    }
+
+    &__text {
+        max-width: 50ch;
+        font-size: 2rem;
     }
 
     &__right {
@@ -59,7 +78,7 @@ export default {
         height: 100%;
         width: 100%;
         background: var(--color-secondary);
-        transform: scaleY(1);
+        transform: scaleY(0);
         will-change: transform;
     }
 

@@ -30,9 +30,11 @@ export default {
 
     transition(to, from) {
         if (to.path === '/') {
+            console.log('hei');
             return fadeOut;
+        } else {
+            return page;
         }
-        return page;
     },
 };
 </script>

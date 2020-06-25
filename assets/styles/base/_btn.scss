@@ -1,0 +1,18 @@
+.btn {
+    display: inline-block;
+    cursor: pointer;
+    padding: 16px 40px;
+    transition: 0.3s ease background-color;
+    color: var(--color-text);
+    background-color: var(--color-secondary);
+    border: solid 1px var(--color-secondary);
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: 4rem;
+
+    &:hover {
+    }
+}

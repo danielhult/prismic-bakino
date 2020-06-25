@@ -2,12 +2,7 @@
     <div class="image-gallery__section">
         <div class="container">
             <div class="image-gallery">
-                <prismic-image
-                    v-for="(image, index) in slice.items"
-                    :key="'image' + index"
-                    :class="index % 2 == 0 ? 'big' : 'small'"
-                    :field="image.gallery_image.Mobile"
-                />
+                <prismic-image v-for="(image, index) in slice.items" :key="'image' + index" :class="index % 2 == 0 ? 'big' : 'small'" :field="image.gallery_image.Mobile" />
             </div>
         </div>
     </div>

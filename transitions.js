@@ -4,7 +4,7 @@ if (process.client) {
     gsap.registerPlugin(ScrollToPlugin);
 }
 import { lineSplit, wordSplit } from '~/animations/Split';
-import { wipeY } from '~/animations/Wipes';
+import { wipeY, wipeFromY } from '~/animations/Wipes';
 import {
     enterTextAnimation,
     leaveTextAnimation,
@@ -35,6 +35,7 @@ export const page = {
             .to(window, { duration: 0.5, scrollTo: 0 })
             .add(leaveTextAnimation(heroTitle.chars))
             .add(skewOutUp(heroText.lines), '<')
+            .add(skewOutUp('.hero .btn'), '<')
             .add(wipeY('.hero__overlay', 'center bottom', 1), '-=1.3');
     },
     enter(el, done) {
@@ -50,7 +51,8 @@ export const page = {
         master
             .add(enterTextAnimation(heroTitle.chars))
             .add(skewInUp(heroText.lines), '-=0.95')
-            .add(wipeY('.hero__overlay', 'center top', 0), '-=1.2');
+            .add(skewInUp('.hero .btn'), '<')
+            .add(wipeFromY('.hero__overlay', 'center top', 1), '-=1.2');
     },
 };
 

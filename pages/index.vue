@@ -1,28 +1,26 @@
 <template>
     <div>
-        <Hero :hero="content" />
-        <slices-block :slices="slices" />
+        <product-grid :products="products" />
     </div>
 </template>
 
 <script>
-import SlicesBlock from '~/components/SlicesBlock.vue';
-import Hero from '~/components/Hero';
+import ProductGrid from '~/components/ProductGrid';
 import { fadeOut } from '~/transitions';
 
 export default {
     name: 'frontpage',
     components: {
-        Hero,
-        SlicesBlock,
+        ProductGrid,
     },
     async asyncData({ $prismic, params, error }) {
         try {
-            const document = await $prismic.api.getSingle('frontpage');
+            const products = await $prismic.api.query(
+                $prismic.predicates.at('document.type', 'page')
+            );
 
             return {
-                content: document.data,
-                slices: document.data.body,
+                products: products.results,
             };
         } catch (e) {
             error({ statusCode: 404, message: 'Something wrong happened!' });

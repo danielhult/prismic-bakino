@@ -17,6 +17,18 @@ export const wipeY = (el, origin, value) => {
     return tl;
 };
 
+export const wipeFromY = (el, origin, value) => {
+    const tl = gsap.timeline();
+
+    tl.from(el, {
+        scaleY: value,
+        transformOrigin: origin,
+        force3D: true,
+    });
+
+    return tl;
+};
+
 export const wipeX = (el, origin, value) => {
     const tl = gsap.timeline();
 

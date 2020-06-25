@@ -19,8 +19,9 @@ export default {
     display: grid;
     place-items: center;
     background: white;
-    color: black;
+    color: var(--color-text);
     @include section-spacing--huge;
+    background: #f2f7f8;
 
     &__content {
         max-width: 50rem;

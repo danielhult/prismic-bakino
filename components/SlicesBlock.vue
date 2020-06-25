@@ -4,8 +4,9 @@
             <template v-if="slice.slice_type === 'hero'">
                 <hero-slice :slice="slice"></hero-slice>
             </template>
-            <template v-else-if="slice.slice_type === 'quote'">
-                <quote-slice :slice="slice"></quote-slice>
+            <template v-else-if=" slice.slice_type==='quote'">
+                <quote-slice :slice=" slice">
+                </quote-slice>
             </template>
             <template v-else-if="slice.slice_type === 'text'">
                 <text-slice :slice="slice"></text-slice>
