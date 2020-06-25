@@ -6,7 +6,7 @@
 
 <script>
 import gsap from 'gsap';
-import { page, fadeOut } from '~/transitions';
+import { page, fadeOut } from '~/assets/animations/transitions';
 import SlicesBlock from '~/components/SlicesBlock.vue';
 
 export default {

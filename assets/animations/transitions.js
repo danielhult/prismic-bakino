@@ -3,8 +3,8 @@ import ScrollToPlugin from 'gsap/scrollToPlugin';
 if (process.client) {
     gsap.registerPlugin(ScrollToPlugin);
 }
-import { lineSplit, wordSplit } from '~/animations/Split';
-import { wipeY, wipeFromY } from '~/animations/Wipes';
+import { lineSplit, wordSplit } from './Split';
+import { wipeY, wipeFromY } from './Wipes';
 import {
     enterTextAnimation,
     leaveTextAnimation,
@@ -12,7 +12,7 @@ import {
     fadeInUp,
     skewOutUp,
     skewInUp,
-} from '~/animations/AnimateText';
+} from '~/assets/animations/AnimateText';
 
 export const page = {
     name: 'page',

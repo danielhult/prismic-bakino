@@ -6,7 +6,7 @@
 
 <script>
 import ProductGrid from '~/components/ProductGrid';
-import { fadeOut } from '~/transitions';
+import { fadeOut } from '~/assets/animations/transitions';
 
 export default {
     name: 'frontpage',
