@@ -1,9 +1,6 @@
 import gsap from 'gsap';
-import { SplitText } from 'gsap/SplitText';
-
-if (process.client) {
-    gsap.registerPlugin(SplitText);
-}
+import { SplitText } from 'gsap';
+gsap.registerPlugin(SplitText);
 
 export const lineSplit = lines => {
     let line = new SplitText(lines, {
