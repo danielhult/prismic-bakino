@@ -11,11 +11,11 @@ export const enterTextAnimation = text => {
     tl.fromTo(
         text,
         {
-            y: '100%',
+            yPercent: 100,
             opacity: 0,
         },
         {
-            y: 0,
+            yPercent: 0,
             opacity: 1,
             stagger: 0.014,
         }
@@ -28,7 +28,7 @@ export const leaveTextAnimation = text => {
     const tl = gsap.timeline();
 
     tl.to(text, {
-        y: '-100%',
+        yPercent: -100,
         opacity: 0,
         stagger: 0.014,
     });

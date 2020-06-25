@@ -10,11 +10,3 @@ export const lineSplit = lines => {
 
     return line;
 };
-
-export const wordSplit = words => {
-    let word = new SplitText(words, {
-        type: 'words',
-    });
-
-    return word;
-};

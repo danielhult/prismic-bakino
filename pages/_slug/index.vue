@@ -5,7 +5,6 @@
 </template>
 
 <script>
-import gsap from 'gsap';
 import { page, fadeOut } from '~/assets/animations/transitions';
 import SlicesBlock from '~/components/SlicesBlock.vue';
 
@@ -30,13 +29,10 @@ export default {
 
     transition(to, from) {
         if (to.path === '/') {
-            console.log('hei');
             return fadeOut;
-        } else {
-            return page;
         }
+        return page;
     },
 };
 </script>
 
-<style lang="scss" scoped></style>

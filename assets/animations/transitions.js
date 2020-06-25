@@ -1,14 +1,12 @@
 import gsap from 'gsap';
-import { lineSplit, wordSplit } from './Split';
+import { lineSplit } from './Split';
 import { wipeY, wipeFromY } from './Wipes';
 import {
     enterTextAnimation,
     leaveTextAnimation,
-    fadeOutUp,
-    fadeInUp,
     skewOutUp,
     skewInUp,
-} from '~/assets/animations/AnimateText';
+} from './AnimateText';
 
 export const page = {
     name: 'page',
@@ -28,7 +26,6 @@ export const page = {
         });
 
         master
-            //.to(window, { duration: 0.5, scrollTo: 0 }
             .add(leaveTextAnimation(heroTitle.chars))
             .add(skewOutUp(heroText.lines), '<')
             .add(skewOutUp('.hero .btn'), '<')
@@ -37,6 +34,7 @@ export const page = {
     enter(el, done) {
         const heroTitle = lineSplit('.hero__title');
         const heroText = lineSplit('.hero__text');
+
         const master = gsap.timeline({
             onComplete: () => {
                 document.body.classList.remove('body--overflow');
