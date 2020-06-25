@@ -11,11 +11,11 @@ export const enterTextAnimation = text => {
     tl.fromTo(
         text,
         {
-            yPercent: 100,
+            yPercent: '100',
             opacity: 0,
         },
         {
-            yPercent: 0,
+            yPercent: '0',
             opacity: 1,
             stagger: 0.014,
         }
@@ -28,7 +28,7 @@ export const leaveTextAnimation = text => {
     const tl = gsap.timeline();
 
     tl.to(text, {
-        yPercent: -100,
+        yPercent: '-100',
         opacity: 0,
         stagger: 0.014,
     });
@@ -40,7 +40,7 @@ export const skewOutUp = element => {
     const tl = gsap.timeline();
 
     tl.to(element, {
-        y: -60,
+        y: '-60',
         opacity: 0,
         skewY: 2,
     });
@@ -52,7 +52,7 @@ export const skewInUp = element => {
     const tl = gsap.timeline();
 
     tl.from(element, {
-        y: 60,
+        y: '60',
         opacity: 0,
         skewY: 2,
     });

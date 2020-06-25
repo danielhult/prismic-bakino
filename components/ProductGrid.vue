@@ -15,6 +15,8 @@
 
 <script>
 import gsap from 'gsap';
+import { enterTextAnimation } from '../assets/animations/AnimateText';
+import { lineSplit } from '../assets/animations/Split';
 
 export default {
     props: ['products'],
@@ -22,30 +24,19 @@ export default {
         const products = document.querySelectorAll('.product-grid__product');
 
         products.forEach(product => {
+            const image = product.querySelector('img');
             const background = product.querySelector(
                 '.product__title__background'
             );
             const text = product.querySelector(
                 '.product__title__background h2'
             );
+            const lines = lineSplit(text);
 
             const tl = gsap.timeline({ paused: true });
-
-            tl.timeScale(1.5);
-
-            tl.to(background, {
-                transformOrigin: 'bottom center',
-                scaleY: 1,
-            }).fromTo(
-                text,
-                {
-                    opacity: 0,
-                    y: 20,
-                },
-                {
-                    opacity: 1,
-                    y: 1,
-                },
+            tl.add(enterTextAnimation(lines.chars).duration(1)).to(
+                image,
+                { scale: 1.05 },
                 '<'
             );
 
@@ -71,18 +62,16 @@ export default {
         z-index: 2;
 
         &__background {
-            background-color: white;
             padding: 1vw;
             display: grid;
             place-items: center;
-            transform: scaleY(0);
+            width: 100%;
         }
 
         h2 {
             position: relative;
             z-index: 2;
             margin-bottom: 0;
-            opacity: 0;
         }
     }
 
@@ -91,9 +80,11 @@ export default {
         display: grid;
         place-items: center;
         flex: 1;
-        transition: flex 0.4s cubic-bezier(0.77, 0, 0.175, 1), 0.3s ease opacity;
+        transition: flex 0.3s cubic-bezier(0.79, 0.14, 0.15, 0.86),
+            1s ease opacity;
         opacity: 0.6;
         cursor: pointer;
+        overflow: hidden;
 
         img {
             position: absolute;
@@ -105,7 +96,7 @@ export default {
         }
 
         &:hover {
-            flex: 1.3;
+            flex: 1.2;
             opacity: 1;
         }
     }
