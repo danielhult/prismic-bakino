@@ -91,7 +91,7 @@ export default {
         display: grid;
         place-items: center;
         flex: 1;
-        transition: 0.3s ease flex, 0.3s ease opacity;
+        transition: flex 0.4s cubic-bezier(0.77, 0, 0.175, 1), 0.3s ease opacity;
         opacity: 0.6;
         cursor: pointer;
 
