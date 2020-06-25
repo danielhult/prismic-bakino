@@ -1,5 +1,4 @@
 import gsap from 'gsap';
-import ScrollToPlugin from 'gsap/scrollToPlugin';
 import { lineSplit, wordSplit } from './Split';
 import { wipeY, wipeFromY } from './Wipes';
 import {
@@ -29,7 +28,7 @@ export const page = {
         });
 
         master
-            .to(window, { duration: 0.5, scrollTo: 0 })
+            //.to(window, { duration: 0.5, scrollTo: 0 }
             .add(leaveTextAnimation(heroTitle.chars))
             .add(skewOutUp(heroText.lines), '<')
             .add(skewOutUp('.hero .btn'), '<')
