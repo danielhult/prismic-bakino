@@ -2,7 +2,12 @@
     <div>
         <div class="intro-animation">
             <h1>Bakino</h1>
-            <svg class="logo" viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg
+                class="logo"
+                viewBox="0 0 900 900"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+            >
                 <circle class="circle-small" cx="50%" cy="43%" r="10" />
                 <circle class="circle-big" cx="50%" cy="50%" r="32" />
             </svg>
@@ -63,7 +68,7 @@ export default {
     position: relative;
     display: grid;
     place-items: center;
-    background: white;
+    background: var(--color-background);
     height: 100vh;
     z-index: 100000;
     position: fixed;
@@ -71,7 +76,6 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    transform: translateY(-100%);
 
     h1 {
         position: absolute;
