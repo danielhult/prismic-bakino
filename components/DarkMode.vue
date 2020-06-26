@@ -1,7 +1,17 @@
 <template>
     <button class="dark-mode-toggle">
-        <svg class="dark-mode-svg" width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path id="svg__sun" d="M20 10C20 15.5228 15.5228 20 10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10Z" fill="#C4C4C4" />
+        <svg
+            class="dark-mode-svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                id="svg__sun"
+                d="M20 10C20 15.5228 15.5228 20 10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10Z"
+                fill="#C4C4C4"
+            />
         </svg>
     </button>
 </template>
@@ -81,10 +91,10 @@ export default {
     outline: none;
 
     &:hover path {
-        fill: var(--color-secondary);
+        fill: #3ea599;
     }
     path {
-        fill: var(--color-secondary);
+        fill: #3ea599;
         transition: 0.5s ease fill;
     }
 }
