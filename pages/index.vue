@@ -54,6 +54,7 @@ export default {
             if (!hasPlayed) {
                 tl.play();
             } else {
+                gsap.set('.intro-animation', { yPercent: -100 });
             }
         }
     },
