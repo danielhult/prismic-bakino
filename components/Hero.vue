@@ -25,7 +25,7 @@ export default {
     place-items: center;
 
     background-size: cover;
-    color: white;
+    color: var(--color-white);
 
     img {
         position: absolute;

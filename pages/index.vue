@@ -49,7 +49,6 @@ export default {
             if (!hasPlayed) {
                 tl.play();
             } else {
-                gsap.set('.intro-animation', { yPercent: -100 });
             }
         }
     },
@@ -72,6 +71,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
+    transform: translateY(-100%);
 
     h1 {
         position: absolute;

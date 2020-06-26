@@ -15,8 +15,8 @@ export default {
 
 <style lang="scss" scoped>
 .rich-text {
-    background: white;
-    color: var(--color-text);
+    background: var(--color-light-background);
+    color: var(--color-text-dark);
     @include section-spacing--huge;
 }
 </style>

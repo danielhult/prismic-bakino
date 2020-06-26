@@ -18,10 +18,9 @@ export default {
 .quote {
     display: grid;
     place-items: center;
-    background: white;
-    color: var(--color-text);
+    background: var(--color-light-background);
+    color: var(--color-text-dark);
     @include section-spacing--huge;
-    background: #f2f7f8;
 
     &__content {
         max-width: 50rem;

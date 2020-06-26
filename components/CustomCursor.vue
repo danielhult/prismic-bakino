@@ -1,8 +1,5 @@
 <template>
-    <div>
-        <div class="circle"></div>
-        <div class="circle-follower"></div>
-    </div>
+    <div class="cursor"></div>
 </template>
 
 <script>
@@ -10,64 +7,65 @@ import gsap from 'gsap';
 
 export default {
     mounted() {
-        const cursor = document.querySelector('.circle');
-        const cursorFollower = document.querySelector('.circle-follower');
+        if (process.client) {
+            let mouseIsDown = false;
 
-        function moveCircle(e) {
-            gsap.to(cursor, {
-                duration: 0.0016,
-                ease: 'power3.inOut',
-                x: e.clientX,
-                y: e.clientY,
+            window.addEventListener('mousedown', e => {
+                mouseIsDown = true;
+                gsap.to('.cursor', {
+                    duration: 0.2,
+                    scale: 0.3,
+                });
             });
-            gsap.to(cursorFollower, {
-                duration: 0.003,
-                ease: 'power3.inOut',
-                x: e.clientX,
-                y: e.clientY,
+
+            window.addEventListener('mouseup', e => {
+                mouseIsDown = false;
+                gsap.to('.cursor', {
+                    duration: 0.2,
+                    scale: 1,
+                });
+            });
+
+            const customCursor = e => {
+                gsap.to('.cursor', {
+                    x: e.clientX,
+                    y: e.clientY,
+                });
+            };
+
+            const growMouse = e => {
+                gsap.to('.cursor', {
+                    scale: 1.5,
+                });
+            };
+
+            const shrinkMouse = e => {
+                gsap.to('.cursor', {
+                    scale: 1,
+                });
+            };
+
+            const buttons = document.querySelectorAll('button .btn');
+
+            window.addEventListener('mousemove', e => customCursor(e));
+            buttons.forEach(button => {
+                button.addEventListener('mouseover', e => growMouse(e));
+                button.addEventListener('mouseleave', e => shrinkMouse(e));
             });
         }
-
-        window.addEventListener('mousemove', moveCircle);
     },
 };
 </script>
 
 <style lang="scss" scoped>
-.circle {
-    position: fixed;
-    background-color: #fff;
-    width: 10px;
-    height: 10px;
-    left: -10px;
-    top: -10px;
-    border-radius: 100%;
-    z-index: 1;
-    // user-select: none;
-    // pointer-events: none;
-    z-index: 10000;
-    transform: scale(1);
-    &.active {
-        opacity: 1;
-        transform: scale(0);
-    }
-}
-
-.circle-follower {
-    position: fixed;
-    border: 1px solid #fff;
-    width: 30px;
-    height: 30px;
-    left: -21px;
-    top: -21px;
-    border-radius: 100%;
-    z-index: 1;
-    user-select: none;
+.cursor {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 100px;
+    z-index: 9999999999;
+    transform: translate(-50%, -50%);
     pointer-events: none;
-    z-index: 10000;
-    transform: scale(1);
-    &.active {
-        transform: scale(3);
-    }
 }
 </style>

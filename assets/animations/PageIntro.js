@@ -7,6 +7,10 @@ export const PageIntro = () => {
         scale: 6,
         transformOrigin: 'center',
     });
+    gsap.set('.intro-animation', {
+        yPercent: 0,
+    });
+
     gsap.set('.circle-small', { y: 60 });
     gsap.set('.intro-animation h1', { y: 60 });
 
